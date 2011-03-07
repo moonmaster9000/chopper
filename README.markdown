@@ -43,12 +43,23 @@ For each way you can slice your string, you can do it with or without blocks. Tr
 You can break up a string into 140 character chunks using the `#tweets` or `#each_tweet` method on `String` instances. It will break on the nearest word boundary
 (instead of chopping the tweet in the middle of a word). It also allows you to choose the delimeter - it defaults to `...` 
 
-    my_tweet = "This tweet is over the 140 character limit, unfortunately. Now I'll have to break the tweet up into smaller tweets. Well, that's just great. Gosh Darnit! Arrrghhhhh!"
+    my_tweet = 
+      "This tweet is over the 140 character limit, unfortunately. " +
+      "Now I'll have to break the tweet up into smaller tweets. " + 
+      "Well, that's just great. Gosh Darnit! Arrrghhhhh!"
+    
     my_tweet.tweets 
       #==> [
         "This tweet is over the 140 character limit, unfortunately. Now I'll have to break the tweet up into smaller tweets. Well, that's just ...", 
         "great. Gosh Darnit! Arrrghhhhh!"
       ]
+    
+    my_tweet.tweets :delimeter => "... (more)"
+      #==> [
+        "This tweet is over the 140 character limit, unfortunately. Now I'll have to break the tweet up into smaller tweets. Well, that's ... (more)", 
+        "just great. Gosh Darnit! Arrrghhhhh!"
+      ]
+
     my_tweet.each_tweet do |tweet|
       p tweet
     end
