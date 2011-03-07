@@ -26,7 +26,7 @@ The full list of methods added to string (see http://rubydoc.info/gems/chopper f
 * String#lines
 * String#each_line
 
-## each_<type> v. <type>s
+## each_ methods accept blocks
 
 For each way you can slice your string, you can do it with or without blocks. Try paragraphs:
 
