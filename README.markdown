@@ -48,12 +48,12 @@ You can break up a string into 140 character chunks using the `#tweets` method o
 
 Chopper will detect @reply tweets (tweets that start with a twitter handle), and will prepend the handle to all tweets:
 
-  string = "@moonmaster9000 this is a really long tweet. can you believe how long it is? i hope it's not too long, because if it goes over 140 characters, then I can't tweet it. Or can I?"
-  string.tweets
-    #==> [
-      "@moonmaster9000 this is a really long tweet. can you believe how long it is? i hope it's not too long, because if it goes over 140 ...", 
-      "@moonmaster9000 characters, then I can't tweet it. Or can I?"
-    ]
+    string = "@moonmaster9000 this is a really long tweet. can you believe how long it is? i hope it's not too long, because if it goes over 140 characters, then I can't tweet it. Or can I?"
+    string.tweets
+      #==> [
+        "@moonmaster9000 this is a really long tweet. can you believe how long it is? i hope it's not too long, because if it goes over 140 ...", 
+        "@moonmaster9000 characters, then I can't tweet it. Or can I?"
+      ]
 
 ## Public Domain
 
