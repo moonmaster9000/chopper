@@ -19,17 +19,3 @@ Then /^I should get an array containing all the paragraphs in the string$/ do
   @paragraphs.length.should == 3
   @paragraphs.should == ["blah 1", "blah 2", "blah 3"]
 end
-
-Given /^a string$/ do
-  @string = "blah 1\nblah 2\n\nblah 3\n"
-end
-
-When /^I call the \#each_paragraph method on it$/ do
-  @paragraphs = []
-  @string.each_paragraph {|paragraph| @paragraphs << paragraph}
-end
-
-Then /^I should be able to iterate over all the paragraphs in the string$/ do
-  @paragraphs.length.should == 3
-  @paragraphs.should == ["blah 1", "blah 2", "blah 3"]
-end

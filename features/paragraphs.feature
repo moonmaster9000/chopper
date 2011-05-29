@@ -10,8 +10,3 @@ Feature: Breaking up a string into paragraphs
     Given a string containing multiple paragraphs
     When I call the #paragraphs method
     Then I should get an array containing all the paragraphs in the string
-
-  Scenario: Iterating over the paragraphs in a string with #each_paragraph 
-    Given a string
-    When I call the #each_paragraph method on it
-    Then I should be able to iterate over all the paragraphs in the string
