@@ -42,3 +42,17 @@ end
 Given /^a string representing an @reply tweet less than 140 characters$/ do
   @tweet_string = "@moonmaster9000 short reply!"
 end
+
+
+Given /^an @reply tweet with some numbers at the start that uniquify the tweet$/ do
+  @tweet_string = "@moonmaster9000 [1] this is a really long tweet. can you believe how long it is? i hope it's not too long, because if it goes over 140 characters, then I can't tweet it. Or can I?"
+end
+
+When /^I call the \#tweets method on it with a custom prepend regex that can capture the unique numbers$/ do
+  @tweets = @tweet_string.tweets :prepend_pattern => /^(@[^\s]+(?:\ \[\d+\])\ ).+$/
+  puts @tweets.inspect
+end
+
+Then /^each of those chunks should begin with the @reply and the numbers$/ do
+  @tweets.all? {|t| t.match /^@moonmaster9000 \[1\]/}.should be_true
+end

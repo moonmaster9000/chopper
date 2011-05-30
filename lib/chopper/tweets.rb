@@ -1,8 +1,9 @@
 class String
   def tweets options={}
     return [self] if self.length <= (options[:max_length] || 140)
+    prepend_pattern = options[:prepend_pattern] || /^(@[^\s]+\ ).+$/
     delimiter = options[:delimiter] || "..."
-    prepend = self.match(/^(@[^\s]+\ ).+$/)
+    prepend = self.match prepend_pattern
     prepend = prepend[1] if prepend
     max_length = (options[:max_length] || 140) - delimiter.length
     max_length -= prepend.length if prepend

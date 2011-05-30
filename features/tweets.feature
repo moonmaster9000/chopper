@@ -28,3 +28,10 @@ Feature: Breaking up a string into tweets
     When I call the #tweets method on it
     Then I should get an array of strings breaking up the original string into 140 character chunks
     And each of those chunks should begin with the @reply 
+
+  @focus
+  Scenario: Providing a custom prepend pattern
+    Given an @reply tweet with some numbers at the start that uniquify the tweet
+    When I call the #tweets method on it with a custom prepend regex that can capture the unique numbers
+    Then I should get an array of strings breaking up the original string into 140 character chunks
+    And each of those chunks should begin with the @reply and the numbers
